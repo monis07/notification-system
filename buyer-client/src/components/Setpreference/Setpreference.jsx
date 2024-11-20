@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import Navbar from '../Navbar/Navbar';
 
-const API_URL = import.meta.env.VITE_API_URL
+const API_URL = 'https://notification-system-phfp.onrender.com'
 
 function Setpreference() {
     const navigate = useNavigate();

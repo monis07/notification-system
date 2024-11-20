@@ -3,7 +3,7 @@ import { AiFillEye } from 'react-icons/ai'
 import './Signup.scss'
 import axios from 'axios'
 
-const API_URL = import.meta.env.VITE_API_URL
+const API_URL = 'https://notification-system-phfp.onrender.com'
 
 function SignUp(){
     const [isVisible,setIsVisible]=useState(false)

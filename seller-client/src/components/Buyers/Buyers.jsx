@@ -7,7 +7,7 @@ function Buyers(){
 
     const [buyers, setBuyers] = useState([])
 
-const API_URL = import.meta.env.VITE_API_URL
+const API_URL = 'https://notification-system-phfp.onrender.com'
 const {id} = useParams();
 
     useEffect(()=>{
