@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'GT';
+  src: url(./GT-Walsheim/GT-Walsheim-Regular-Trial.woff2)format('woff2');
+}
+
+:root{
+  font-family: 'GT', sans-serif;
+  --primary-color:#499bd6;
+}
+*{
+  box-sizing: border-box;
+  margin:0;
+  padding: 0;
+}
