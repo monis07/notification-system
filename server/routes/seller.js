@@ -91,7 +91,7 @@ router.post('/addProduct',authenticateJwt,async(req,res)=>{
             }
             buyers.forEach((buyer)=>{
                 buyer.products.push(product._id)
-                sendWhatsappMessage(buyer.email,`Hey! A new product in ${category} category has been added for $${price}. Check it out here on https://www.google.com. Buy in 24 hours to avail 10% discount!`)
+                sendWhatsappMessage(buyer.email,`Hey! A new product in *${category}* category has been added for $${price}. Check it out on our website my logging in with your username and password. Buy in 24 hours to avail 10% discount!`)
             })
         })
 

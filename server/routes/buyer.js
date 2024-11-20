@@ -101,9 +101,10 @@ router.get('/getPreferences', authenticateJwt, async(req,res)=>{
 router.post('/productInterest/:id',authenticateJwt,async(req,res)=>{
     const productId = req.params.id
     
-    await Product.findOneAndUpdate({_id : productId},{$push:{interestedBuyers:req.user._id}})
+    Product.findOneAndUpdate({_id : productId},{$push:{interestedBuyers:req.user._id}}).then((product)=>{
+        sendWhatsAppMessage(req.user.email,`Hey! We are happy to see your interest in our product titled ${product.title}. Buy now to avail 10% discount!`)
+    })
 
-    sendWhatsAppMessage(req.user.email,`Hey! We are happy to see your interest in our product. Buy now to avail 10% discount!`)
 
     const product = await Buyer.findOneAndUpdate({_id : req.user._id},{$pull:{products:productId}})
 
@@ -127,6 +128,10 @@ router.post('/noproductInterest/:id',authenticateJwt, async(req,res)=>{
     else{
         res.status(400).send("Error recording interest")
     }
+})
+
+router.get('/cron-job', async(req,res)=>{
+    res.status(200).send("Cron job from notification system backend received successfully!")
 })
 
 
